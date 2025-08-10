@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Analyzer - Made by Mr Ali</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-robot"></i> AI Resume Analyzer</h1>
+                <p class="creator">Made by <span class="highlight">Mr Ali</span></p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-card">
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <h3>Upload Your Resume</h3>
+                        <p>Drag and drop your resume here or click to browse</p>
+                        <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.txt" hidden>
+                        <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                            <i class="fas fa-folder-open"></i> Browse Files
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analysis Options -->
+            <section class="options-section" id="optionsSection" style="display: none;">
+                <div class="options-card">
+                    <h3><i class="fas fa-cogs"></i> Analysis Options</h3>
+                    <div class="job-title-input">
+                        <label for="jobTitle">Target Job Title (Optional):</label>
+                        <input type="text" id="jobTitle" placeholder="e.g., Software Developer, Marketing Manager">
+                    </div>
+                    <button class="analyze-btn" id="analyzeBtn">
+                        <i class="fas fa-search"></i> Analyze Resume
+                    </button>
+                </div>
+            </section>
+
+            <!-- Loading Section -->
+            <section class="loading-section" id="loadingSection" style="display: none;">
+                <div class="loading-card">
+                    <div class="loading-spinner"></div>
+                    <h3>Analyzing Your Resume...</h3>
+                    <p>Our AI is examining your resume for improvements</p>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <h2><i class="fas fa-chart-line"></i> Analysis Results</h2>
+                    <button class="new-analysis-btn" id="newAnalysisBtn">
+                        <i class="fas fa-plus"></i> New Analysis
+                    </button>
+                </div>
+
+                <!-- Score Card -->
+                <div class="score-card">
+                    <div class="score-circle">
+                        <div class="score-value" id="scoreValue">0</div>
+                        <div class="score-label">Overall Score</div>
+                    </div>
+                    <div class="score-breakdown">
+                        <div class="score-item">
+                            <span class="score-category">Format & Structure</span>
+                            <div class="score-bar">
+                                <div class="score-fill" id="formatScore"></div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-category">Content Quality</span>
+                            <div class="score-bar">
+                                <div class="score-fill" id="contentScore"></div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-category">Keywords Match</span>
+                            <div class="score-bar">
+                                <div class="score-fill" id="keywordsScore"></div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-category">ATS Compatibility</span>
+                            <div class="score-bar">
+                                <div class="score-fill" id="atsScore"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Analysis -->
+                <div class="analysis-grid">
+                    <!-- Strengths -->
+                    <div class="analysis-card strengths-card">
+                        <h3><i class="fas fa-thumbs-up"></i> Strengths</h3>
+                        <ul id="strengthsList"></ul>
+                    </div>
+
+                    <!-- Improvements -->
+                    <div class="analysis-card improvements-card">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Areas for Improvement</h3>
+                        <ul id="improvementsList"></ul>
+                    </div>
+
+                    <!-- Keywords -->
+                    <div class="analysis-card keywords-card">
+                        <h3><i class="fas fa-tags"></i> Keyword Analysis</h3>
+                        <div class="keywords-container">
+                            <div class="found-keywords">
+                                <h4>Found Keywords:</h4>
+                                <div id="foundKeywords" class="keywords-tags"></div>
+                            </div>
+                            <div class="missing-keywords">
+                                <h4>Suggested Keywords:</h4>
+                                <div id="missingKeywords" class="keywords-tags"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recommendations -->
+                    <div class="analysis-card recommendations-card">
+                        <h3><i class="fas fa-lightbulb"></i> AI Recommendations</h3>
+                        <div id="recommendationsList"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 AI Resume Analyzer - Made by <span class="highlight">Mr Ali</span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
